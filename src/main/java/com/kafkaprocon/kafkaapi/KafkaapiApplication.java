@@ -14,9 +14,11 @@ public class KafkaapiApplication {
 		
 		//Producer
 		ProducerService producer = new ProducerService(KafkaConfig.getProducerConfig());
-		producer.enviar(topic, "usuario1", "Compra procesada");
-		producer.enviar(topic, "admin2", "Pedido entregado");
-		producer.enviar(topic, "invitado3", "Dato guardado");
+		
+		String json =
+				"{\"pedidoId\":1,\"producto\":\"Laptop\",\"precio\":25000}";
+		
+		producer.enviar(topic, "pedido-1", json);
 		
 		producer.cerrar();
 		

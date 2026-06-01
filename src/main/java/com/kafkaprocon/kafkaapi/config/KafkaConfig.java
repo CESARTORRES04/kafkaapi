@@ -26,7 +26,11 @@ public class KafkaConfig {
 		props.put("enable.auto.commit", "false");
 		//Rebalanceo
 		props.put("partition.assignment.strategy", "org.apache.kafka.clients.consumer.CooperativeStickyAssignor");
-		
+		props.put("acks", "all");
+		props.put("retries", "3");
+		props.put("batch.size", "16384");
+		props.put("linger.ms", "5");
+		props.put("compression.type", "snappy");
 		return props;
 		
 	}
